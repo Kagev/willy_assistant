@@ -1,4 +1,4 @@
-# GOIT_PersonalAssistance
+# willy_assistant
 
 ## by GoIT project-team-4 "PyCrafters"
 
