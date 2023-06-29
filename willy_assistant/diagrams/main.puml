@@ -1,0 +1,4 @@
+@startuml
+User -> project_willy: run: willy
+project_willy -> Registration
+@enduml

@@ -1,0 +1,65 @@
+{
+  "1": {
+    "username": "LORA",
+    "email": "lora@site.com",
+    "phone": "380505554422",
+    "salt": "61ad8d9c37cd33c033f9af0acd1b5fa83755553e2a23216749097c866d225e3a",
+    "key": "e6877108acf8dc1c96450449d8087c33ae434d6e6fab24194bacd274ec32256b"
+  },
+  "2": {
+    "username": "BOB",
+    "email": "bob_bob@bobmail.com",
+    "phone": "380671112233",
+    "salt": "37f701a185783dec3fe4f5676597c7bb232de930972bf2fc46f1830f791185cb",
+    "key": "e5189a431fab1220672007fa77eb5058215e2057cbfc30318bfc499a4fbed68e"
+  },
+  "3": {
+    "username": "KIRA",
+    "email": "kira@site.com",
+    "phone": "380998887733",
+    "salt": "e811b07838638739384307c0a4899ded02c654f3f20bbece08121ac607b25483",
+    "key": "d7dd2d6d2294afc998f67e358c500a3ffc0d35b910f7fe023f32b356984fa5b6"
+  },
+  "4": {
+    "username": "BILL",
+    "email": "billy@site.com",
+    "phone": "380994443322",
+    "salt": "c30801597361d4ee233e20f23c3cd49296ee01835d67005e80fa7cebf9d440af",
+    "key": "6faba9a25acce165b4a17d9cb66bceb1904ac35ff34f9a5e71f2329886fa8628"
+  },
+  "5": {
+    "username": "DIANA",
+    "email": "diana_diana@site.com",
+    "phone": "380939998765",
+    "salt": "0b0586d8a29c5a147e86ac14029235f59cd5ba011bc923cd05b3220284d57dcd",
+    "key": "b6e30a44ddbd8f84e463fafaf75444871eff121b82075355f82d6defec97a42c"
+  },
+  "6": {
+    "username": "Willy Wonka",
+    "email": "Willy_Wonka@site.com",
+    "phone": "380660001122",
+    "salt": "56d5cf1e4ebc4df90754b2504efdf264311a5f28210c0ca2727de0af0a3563d9",
+    "key": "e6c10046f5ad30e7c0b3bafd18799cee7347ef71caec8b3d02409448550159ea"
+  },
+  "7": {
+    "username": "Sasha",
+    "email": "sasha@site.com",
+    "phone": "380998887766",
+    "salt": "ad6be6440199fd622d5ec53b32d39739778791f7a3ef2292ffbd06a845062ead",
+    "key": "5e1f81d0178423b422adffa4414bb3084e21e8a8416a62b7034b9029277cfca1"
+  },
+  "8": {
+    "username": "user",
+    "email": "Invalid email. Please enter a valid email.",
+    "phone": "380123456789",
+    "salt": "81684e7860c4c9902974b1f2e313f5d6d89909981479fd61acf2edbf98f058ef",
+    "key": "a6718262102a2715211a66145693ea093e60f28e7d03c7e1b8ac0465b1f78676"
+  },
+  "9": {
+    "username": "ADAM",
+    "email": "adams@site.com",
+    "phone": "380667654321",
+    "salt": "3b3c5c2cda387b0478c231591829d2f0ede8ed55dd2dbee0c60110977b9282c6",
+    "key": "6d6dfb738d77922f5d7798bfd68d705d077b2a3fa81abfde49a9d34329c0970a"
+  }
+}

@@ -1,0 +1,42 @@
+# PynSource Version 1.2
+{'type':'meta', 'info1':'Lorem ipsum dolor sit amet, consectetur adipiscing elit is latin. Comments are saved.'}
+{'type':'umlshape', 'id':'Authorization', 'x':829, 'y':34, 'width':140, 'height':224, 'attrs': 'identifier|key|max_attempts|password|salt|user_data|users', 'meths': '__init__|load_users|login|validate_input'}
+{'type':'umlshape', 'id':'AuthorizationUser', 'x':226, 'y':152, 'width':180, 'height':89, 'attrs': 'users', 'meths': 'load_users'}
+{'type':'umlshape', 'id':'AuthorizationAdmin', 'x':570, 'y':2, 'width':190, 'height':89, 'attrs': 'users', 'meths': 'load_users'}
+{'type':'umlshape', 'id':'authorization.py', 'x':235, 'y':22, 'width':170, 'height':79, 'attrs': 'admin_authorization|user_authorization', 'meths': ''}
+{'type':'umlshape', 'id':'ABC', 'x':579, 'y':290, 'width':40, 'height':29, 'attrs': '', 'meths': ''}
+{'type':'umlshape', 'id':'getpass.getpass', 'x':950, 'y':313, 'width':160, 'height':29, 'attrs': '', 'meths': ''}
+{'type':'umlshape', 'id':'os.urandom', 'x':747, 'y':312, 'width':110, 'height':29, 'attrs': '', 'meths': ''}
+{'type':'umlshape', 'id':'json.load', 'x':262, 'y':312, 'width':100, 'height':29, 'attrs': '', 'meths': ''}
+{'type':'umlshape', 'id':'Registration', 'x':846, 'y':410, 'width':130, 'height':224, 'attrs': 'password|salt|useremail|username|userphonenumber|users', 'meths': '__init__|load_user|registration_user|save_user|validate_input'}
+{'type':'umlshape', 'id':'RegistrationAdmin', 'x':225, 'y':400, 'width':180, 'height':119, 'attrs': 'users', 'meths': '__init__|load_user|save_user'}
+{'type':'umlshape', 'id':'RegistrationUser', 'x':562, 'y':570, 'width':170, 'height':119, 'attrs': 'users', 'meths': '__init__|load_user|save_user'}
+{'type':'umlshape', 'id':'registration.py', 'x':233, 'y':542, 'width':160, 'height':79, 'attrs': 'admin_registration|user_registration', 'meths': ''}
+{'type':'edge', 'id':'AuthorizationAdmin_to_Authorization', 'source':'AuthorizationAdmin', 'target':'Authorization', 'uml_edge_type': 'generalisation'}
+{'type':'edge', 'id':'Authorization_to_ABC', 'source':'Authorization', 'target':'ABC', 'uml_edge_type': 'generalisation'}
+{'type':'edge', 'id':'AuthorizationAdmin_to_ABC', 'source':'AuthorizationAdmin', 'target':'ABC', 'uml_edge_type': 'generalisation'}
+{'type':'edge', 'id':'AuthorizationUser_to_Authorization', 'source':'AuthorizationUser', 'target':'Authorization', 'uml_edge_type': 'generalisation'}
+{'type':'edge', 'id':'AuthorizationUser_to_ABC', 'source':'AuthorizationUser', 'target':'ABC', 'uml_edge_type': 'generalisation'}
+{'type':'edge', 'id':'AuthorizationAdmin_to_authorization.py', 'source':'AuthorizationAdmin', 'target':'authorization.py', 'uml_edge_type': 'composition'}
+{'type':'edge', 'id':'getpass.getpass_to_Authorization', 'source':'getpass.getpass', 'target':'Authorization', 'uml_edge_type': 'composition'}
+{'type':'edge', 'id':'os.urandom_to_Authorization', 'source':'os.urandom', 'target':'Authorization', 'uml_edge_type': 'composition'}
+{'type':'edge', 'id':'json.load_to_AuthorizationUser', 'source':'json.load', 'target':'AuthorizationUser', 'uml_edge_type': 'composition'}
+{'type':'edge', 'id':'json.load_to_AuthorizationAdmin', 'source':'json.load', 'target':'AuthorizationAdmin', 'uml_edge_type': 'composition'}
+{'type':'edge', 'id':'AuthorizationUser_to_authorization.py', 'source':'AuthorizationUser', 'target':'authorization.py', 'uml_edge_type': 'composition'}
+{'type':'edge', 'id':'Authorization_to_authorization.py', 'source':'Authorization', 'target':'authorization.py', 'uml_edge_type': 'association'}
+{'type':'edge', 'id':'AuthorizationUser_to_authorization.py', 'source':'AuthorizationUser', 'target':'authorization.py', 'uml_edge_type': 'association'}
+{'type':'edge', 'id':'AuthorizationAdmin_to_authorization.py', 'source':'AuthorizationAdmin', 'target':'authorization.py', 'uml_edge_type': 'association'}
+{'type':'edge', 'id':'RegistrationAdmin_to_Registration', 'source':'RegistrationAdmin', 'target':'Registration', 'uml_edge_type': 'generalisation'}
+{'type':'edge', 'id':'RegistrationAdmin_to_ABC', 'source':'RegistrationAdmin', 'target':'ABC', 'uml_edge_type': 'generalisation'}
+{'type':'edge', 'id':'Registration_to_ABC', 'source':'Registration', 'target':'ABC', 'uml_edge_type': 'generalisation'}
+{'type':'edge', 'id':'RegistrationUser_to_Registration', 'source':'RegistrationUser', 'target':'Registration', 'uml_edge_type': 'generalisation'}
+{'type':'edge', 'id':'RegistrationUser_to_ABC', 'source':'RegistrationUser', 'target':'ABC', 'uml_edge_type': 'generalisation'}
+{'type':'edge', 'id':'getpass.getpass_to_Registration', 'source':'getpass.getpass', 'target':'Registration', 'uml_edge_type': 'composition'}
+{'type':'edge', 'id':'RegistrationUser_to_registration.py', 'source':'RegistrationUser', 'target':'registration.py', 'uml_edge_type': 'composition'}
+{'type':'edge', 'id':'json.load_to_RegistrationUser', 'source':'json.load', 'target':'RegistrationUser', 'uml_edge_type': 'composition'}
+{'type':'edge', 'id':'os.urandom_to_Registration', 'source':'os.urandom', 'target':'Registration', 'uml_edge_type': 'composition'}
+{'type':'edge', 'id':'json.load_to_RegistrationAdmin', 'source':'json.load', 'target':'RegistrationAdmin', 'uml_edge_type': 'composition'}
+{'type':'edge', 'id':'RegistrationAdmin_to_registration.py', 'source':'RegistrationAdmin', 'target':'registration.py', 'uml_edge_type': 'composition'}
+{'type':'edge', 'id':'RegistrationUser_to_registration.py', 'source':'RegistrationUser', 'target':'registration.py', 'uml_edge_type': 'association'}
+{'type':'edge', 'id':'RegistrationAdmin_to_registration.py', 'source':'RegistrationAdmin', 'target':'registration.py', 'uml_edge_type': 'association'}
+{'type':'edge', 'id':'Registration_to_registration.py', 'source':'Registration', 'target':'registration.py', 'uml_edge_type': 'association'}

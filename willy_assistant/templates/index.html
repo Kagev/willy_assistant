@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta content="width=device-width, initial-scale=1" name="viewport">
+	<meta content="" name="description">
+	<meta content="Mark Otto, Jacob Thornton, and Bootstrap contributors" name="author">
+	<meta content="Hugo 0.88.1" name="generator">
+	<title>Signin Willy assistant</title>
+	
+	<!-- Bootstrap core CSS -->
+	<link href="/static/assets/dist/css/bootstrap.min.css" rel="stylesheet">
+	
+	<style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    
+	
+	
+	</style>
+	
+	<!-- Custom styles for this template -->
+	<link href="/static/assets/dist/css/index.css" rel="stylesheet">
+</head>
+
+
+<body class="text-center">
+
+<main class="form-signin">
+	<img alt="" class="mb-4" height="150" src="/static/assets/brand/logo_PyCrafters.png" width="150 ">
+	<h1 class="h3 mb-3 fw-normal">Please choose</h1>
+	<form>
+		<div class="row">
+			<div class="col">
+				<button name="submit_button" value="signin" type="submit" class="w-100 btn btn-lg btn-primary"
+				        id="signin-btn">Sign in
+				</button>
+			</div>
+			<div class="col">
+				<button name="submit_button" value="register" type="submit" class="w-100 btn btn-lg btn-primary"
+				        id="register-btn">Registration
+				</button>
+			</div>
+		</div>
+	</form>
+	<p class="mt-5 mb-3 text-muted">&copy; 2023</p>
+</main>
+
+<script src="/static/assets/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    // Получаем ссылки на кнопки
+    const signinButton = document.getElementById("signin-btn");
+    const registerButton = document.getElementById("register-btn");
+
+    // Добавляем обработчики события на нажатие кнопок
+    signinButton.addEventListener("click", () => {
+        sendButtonClicked("signin");
+    });
+
+    registerButton.addEventListener("click", () => {
+        sendButtonClicked("register");
+    });
+
+    // Функция для отправки данных на сервер
+    function sendButtonClicked(buttonClicked) {
+        // Создаем AJAX-запрос
+        const xhr = new XMLHttpRequest();
+        xhr.open("POST", "/button_click", true);
+        xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+
+        // Формируем данные для отправки
+        const data = "submit_button" + encodeURIComponent(buttonClicked);
+
+        // Отправляем запрос
+        xhr.send(data);
+
+        // Обработка ответа от сервера
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState === XMLHttpRequest.DONE) {
+                if (xhr.status === 200) {
+                    // Обработка успешного ответа
+                    const response = xhr.responseText;
+                    console.log(response);
+                    // Можно выполнить дополнительные действия с ответом, например, обновить содержимое страницы
+                } else {
+                    // Обработка ошибки
+                    console.error("Request error:", xhr.status);
+                }
+            }
+        };
+    }
+
+
+</script>
+
+</body>
+</html>
+
+</html>
