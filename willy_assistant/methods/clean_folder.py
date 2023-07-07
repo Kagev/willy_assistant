@@ -1,8 +1,11 @@
 
 # from project_willy.methods.imports import Path, re, os, shutil
 import re, os, shutil
+import time
 from pathlib import Path
 from threading import Thread
+import concurrent.futures
+from multiprocessing import cpu_count
 import logging, argparse
 import tarfile
 
@@ -55,7 +58,7 @@ def identify_file(file: Path) -> tuple:
             if file_extension == extension:
                 move_to_directory(normilize(file), name)
                 return name, file_extension, 'identified'
-    return None, file_extension, 'unidentified'
+    return file_extension, 'unidentified'
 
 
 def normilize(file: Path) -> Path:
@@ -74,7 +77,6 @@ def normilize(file: Path) -> Path:
     return file.rename(str(file).replace(file.name, f'{edited_file_name}{file.suffix}'))
 
 
-import tarfile
 
 def move_to_directory(file: Path, directory_name: str) -> None:
     directory_path = Path(str(file).replace(file.name, directory_name))
@@ -114,6 +116,9 @@ def launch_script(path: Path) -> None:
         except Exception as e:
             logging.error(f"An error occurred: {str(e)}")
 
+    def folder_thread(path: Path):
+        num_thread = cpu_count()
+
 
 if __name__ == "__main__":
     log_folder = os.path.join(os.path.dirname(os.path.abspath(__file__)), "log")
@@ -134,8 +139,10 @@ if __name__ == "__main__":
     threads = []
     for folder in folders:
         th = Thread(target=move_to_directory, args=(folder, folder.name))
+        start_time = time.time()
         th.start()
         threads.append(th)
+        end_time = time.time()
 
     for th in threads:
         th.join()
@@ -145,3 +152,4 @@ if __name__ == "__main__":
     #     category_path.mkdir(exist_ok=True)
 
     print("Mission complet")
+    print("Lead time", end_time - start_time, "s")

@@ -1,10 +1,7 @@
-import os
-import argparse
-import re
-import shutil
+import re, os, shutil, time, tarfile, concurrent.futures, logging, argparse
 from pathlib import Path
 from threading import Thread
-import logging
+from multiprocessing import cpu_count
 from typing import Tuple
 
 parse_list = {"documents": [], "video": [], "audio": [], "images": [], "archives": [], None: []}
@@ -86,25 +83,29 @@ def identify_file(file: Path) -> Tuple[str, str, str] | Tuple[None, str, str]:
     for name, extensions in POSSIBLE_EXTENSIONS.items():
         if file_extension in extensions:
             return name, file_extension, 'identified'
-    return file_extension, 'unidentified'
+    return None, file_extension, 'unidentified'
 
 
 def read_folder(path: Path) -> None:
     for element in path.iterdir():
         if element.is_dir():
-            folders.append(element)
-            read_folder(element)
+            folders.append(normalize(element))
+            read_folder(normalize(element))
 
 
-def copy_file(path: Path) -> None:
-    for element in path.iterdir():
+def copy_file(folder: Path, folder_name: str) -> None:
+    for element in folder.iterdir():
         if element.is_file():
             ext = element.suffix.lower()
             file_category = identify_file(element)
             file_categories.add(file_category[0])
-            new_path = output_folder / file_category[0] / ext[1:]
+            if file_category[0] is None:
+                new_path = output_folder / 'unidentified'
+            else:
+                new_path = output_folder / file_category[0] / ext[1:]
             new_path.mkdir(exist_ok=True, parents=True)
             shutil.move(element, new_path / element.name)
+
 
 
 if __name__ == "__main__":
@@ -125,7 +126,7 @@ if __name__ == "__main__":
 
     threads = []
     for folder in folders:
-        th = Thread(target=copy_file, args=(folder,))
+        th = Thread(target=copy_file, args=(folder, folder.name))
         th.start()
         threads.append(th)
 
@@ -136,15 +137,9 @@ if __name__ == "__main__":
         category_path = output_folder / category
         category_path.mkdir(exist_ok=True)
 
-    for folder in folders:
-        for file in folder.iterdir():
-            if file.is_file():
-                file = normalize(file)
-                ext = file.suffix.lower()
-                file_category = identify_file(file)
-                if file_category[0] in file_categories:
-                    new_path = output_folder / file_category[0] / ext[1:]
-                    new_path.mkdir(exist_ok=True)
-                    shutil.move(file, new_path / file.name)
+    for category in file_categories:
+        if category is not None:
+            category_path = output_folder / category
+            category_path.mkdir(exist_ok=True)
 
     print("Sorting completed.")
